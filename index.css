@@ -1,0 +1,20 @@
+body {
+  min-height: 100vh;
+  background-color: rgb(205, 167, 109);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  display: grid;
+
+  grid-template-rows: 120px 120px 120px;
+  grid-template-columns: 120px 120px 120px;
+}
+
+.box {
+  background-color: rgb(122, 111, 195);
+  border: solid 2px;
+}
