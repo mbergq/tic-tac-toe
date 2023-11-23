@@ -7,6 +7,7 @@ const computerSelector = container.querySelectorAll('.box');
 //Computer-selection function
 const getComputerMark = () => {
   const n = Math.floor(Math.random() * 9);
+  //If e.target getattribute false etc, then run
   return computerSelector[n].style.backgroundColor = 'red';
 };
 
@@ -14,10 +15,18 @@ const getComputerMark = () => {
 for (let i = 0; i < boxes.length; i++) {
   //Set att state to false
   boxes[i].setAttribute("tag", "false");
-
   boxes[i].addEventListener('click', (e) => {
-    e.target.setAttribute("tag", "true");
+
+    if (e.target.getAttribute("tag") === "false") {
+      e.target.setAttribute("tag", "true");
+      getComputerMark();
+    }
+    else return;
+
     console.log(e.target);
 
   })
 }
+
+//If e.target.getattribute tag = true
+//
