@@ -4,11 +4,17 @@ const boxes = document.querySelectorAll('.box');
 //Collect all boxes
 const computerSelector = container.querySelectorAll('.box');
 
-//Computer-selection function
+// Computer-selection function
+
 const getComputerMark = () => {
   const n = Math.floor(Math.random() * 9);
-  //If e.target getattribute false etc, then run
-  return computerSelector[n].style.backgroundColor = 'red';
+
+  console.log(n);
+  if (computerSelector[n].getAttribute("tag") === "false") {
+    computerSelector[n].style.backgroundColor = 'red';
+    computerSelector[n].setAttribute("tag", "true");
+  }
+
 };
 
 //Add event listeners to every box
@@ -19,12 +25,12 @@ for (let i = 0; i < boxes.length; i++) {
 
     if (e.target.getAttribute("tag") === "false") {
       e.target.setAttribute("tag", "true");
+      e.target.style.backgroundColor = 'blue';
       getComputerMark();
     }
-    else return;
-
-    console.log(e.target);
-
+    else {
+      return;
+    }
   })
 }
 
