@@ -22,7 +22,7 @@ for (let i = 0; i < getNodeList.length; i++) {
   getNodeList[i].setAttribute("tag", "false");
   getNodeList[i].addEventListener('click', (e) => {
 
-    getEmptyBoxes();
+
     if (e.target.getAttribute("tag") === "false") {
       e.target.setAttribute("tag", "true");
       e.target.style.backgroundColor = 'blue';
@@ -31,29 +31,31 @@ for (let i = 0; i < getNodeList.length; i++) {
     else {
       return;
     }
+    getEmptyBoxes();
   })
 }
 
-let array = Array.prototype.slice.call(getNodeList);
+//Set the nodelist in an arrayOfNodes
+let arrayOfNodes = Array.prototype.slice.call(getNodeList);
 
 console.log(getNodeList);
 
 console.log(getNodeList[0].attributes[1].nodeValue === "false"); //This condition works
 
-let arr = [];
+let arrayOfIndexes = [];
 
 const getEmptyBoxes = () => {
 
   for (let i = 0; i < 9; i++) {
-    if (array[i].attributes[1].nodeValue === "false") {
-      console.log("Hey");
+    if (arrayOfNodes[i].attributes[1].nodeValue === "false") {
+      let index = arrayOfNodes.indexOf(getNodeList[i]);
+      console.log(index);
+      arrayOfIndexes.push(index);
+
     }
   }
-
+  console.log(arrayOfIndexes);
 }
+console.log(arrayOfNodes.indexOf(getNodeList[2]));
 
-
-
-console.log(array.indexOf(getNodeList[2]));
-
-console.log(array[0]);
+console.log(arrayOfNodes[0]);
