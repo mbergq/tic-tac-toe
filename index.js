@@ -35,27 +35,33 @@ for (let i = 0; i < getNodeList.length; i++) {
   })
 }
 
-//Set the nodelist in an arrayOfNodes
+//Put nodelist in an array
 let arrayOfNodes = Array.prototype.slice.call(getNodeList);
-
-console.log(getNodeList);
 
 console.log(getNodeList[0].attributes[1].nodeValue === "false"); //This condition works
 
 let arrayOfIndexes = [];
-
+let uniqueArray;
 const getEmptyBoxes = () => {
 
   for (let i = 0; i < 9; i++) {
+
     if (arrayOfNodes[i].attributes[1].nodeValue === "false") {
       let index = arrayOfNodes.indexOf(getNodeList[i]);
-      console.log(index);
+
       arrayOfIndexes.push(index);
+      uniqueArray = Array.from(new Set(arrayOfIndexes));
+
+
 
     }
-  }
+  }//Do i have to wrap this into a function to reiterate?
   console.log(arrayOfIndexes);
+  console.log(uniqueArray);
 }
-console.log(arrayOfNodes.indexOf(getNodeList[2]));
 
-console.log(arrayOfNodes[0]);
+
+// function removeDuplicates(arrayOfIndexes) {
+//   return arrayOfIndexes.filter((item, ind) => arrayOfIndexes.indexOf(item) === ind);
+// }
+// arrayOfIndexes = removeDuplicates(arrayOfIndexes);
