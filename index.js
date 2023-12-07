@@ -16,10 +16,13 @@ const getComputerMark = () => {
 
 };
 
-//Add event listeners to every box
+//Set states
 for (let i = 0; i < getNodeList.length; i++) {
-  //Set attribute state to false
+
   getNodeList[i].setAttribute("tag", "false");
+}
+
+for (let i = 0; i < getNodeList.length; i++) {
   getNodeList[i].addEventListener('click', (e) => {
 
 
@@ -32,6 +35,7 @@ for (let i = 0; i < getNodeList.length; i++) {
       return;
     }
     getEmptyBoxes();
+    resetArray();
   })
 }
 
@@ -41,8 +45,14 @@ let arrayOfNodes = Array.prototype.slice.call(getNodeList);
 console.log(getNodeList[0].attributes[1].nodeValue === "false"); //This condition works
 
 let arrayOfIndexes = [];
+
+function resetArray() {
+  arrayOfIndexes = [];
+}
+
 let uniqueArray;
 const getEmptyBoxes = () => {
+
 
   for (let i = 0; i < 9; i++) {
 
@@ -55,13 +65,10 @@ const getEmptyBoxes = () => {
 
 
     }
-  }//Do i have to wrap this into a function to reiterate?
-  console.log(arrayOfIndexes);
+    if (arrayOfNodes[i].attributes[1].nodeValue === "false") {
+      // console.log(arrayOfNodes[i]);
+      console.log(arrayOfNodes.indexOf(getNodeList[i]));
+    }
+  }
   console.log(uniqueArray);
 }
-
-
-// function removeDuplicates(arrayOfIndexes) {
-//   return arrayOfIndexes.filter((item, ind) => arrayOfIndexes.indexOf(item) === ind);
-// }
-// arrayOfIndexes = removeDuplicates(arrayOfIndexes);
