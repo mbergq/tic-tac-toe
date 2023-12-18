@@ -24,7 +24,9 @@ for (let i = 0; i < getNodeList.length; i++) {
     }
     putAvailableIndexesInArray();
     resetArray();
+
     checkWinUser();
+    checkWinComputer();
   })
 }
 
@@ -138,6 +140,74 @@ function checkWinUser() {
     && getNodeList[6].style.backgroundColor === 'blue'
   ) {
     console.log("Top right to bottom left is blue");
+  }
+
+}
+
+function checkWinComputer() {
+
+  if (
+    getNodeList[0].style.backgroundColor === 'red'
+    && getNodeList[1].style.backgroundColor === 'red'
+    && getNodeList[2].style.backgroundColor === 'red'
+  ) {
+    console.log("Top row is red");
+  }
+
+  if (
+    getNodeList[3].style.backgroundColor === 'red'
+    && getNodeList[4].style.backgroundColor === 'red'
+    && getNodeList[5].style.backgroundColor === 'red'
+  ) {
+    console.log("Middle row is red");
+  }
+
+  if (
+    getNodeList[6].style.backgroundColor === 'red'
+    && getNodeList[7].style.backgroundColor === 'red'
+    && getNodeList[8].style.backgroundColor === 'red'
+  ) {
+    console.log("Bottom row is red");
+  }
+
+  if (
+    getNodeList[0].style.backgroundColor === 'red'
+    && getNodeList[3].style.backgroundColor === 'red'
+    && getNodeList[6].style.backgroundColor === 'red'
+  ) {
+    console.log("Left column is red");
+  }
+
+  if (
+    getNodeList[1].style.backgroundColor === 'red'
+    && getNodeList[4].style.backgroundColor === 'red'
+    && getNodeList[7].style.backgroundColor === 'red'
+  ) {
+    console.log("Middle column is red");
+  }
+
+  if (
+    getNodeList[2].style.backgroundColor === 'red'
+    && getNodeList[5].style.backgroundColor === 'red'
+    && getNodeList[8].style.backgroundColor === 'red'
+  ) {
+    console.log("Right column is red");
+  }
+
+  if (
+    getNodeList[0].style.backgroundColor === 'red'
+    && getNodeList[4].style.backgroundColor === 'red'
+    && getNodeList[8].style.backgroundColor === 'red'
+  ) {
+    console.log("Top left to bottom right is red");
+  }
+
+  if (
+    getNodeList[2].style.backgroundColor === 'red'
+    && getNodeList[4].style.backgroundColor === 'red'
+    && getNodeList[6].style.backgroundColor === 'red'
+  ) {
+    console.log("Top right to bottom left is red");
   }
 
 }
