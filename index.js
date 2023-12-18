@@ -24,6 +24,7 @@ for (let i = 0; i < getNodeList.length; i++) {
     }
     putAvailableIndexesInArray();
     resetArray();
+    checkWinUser();
   })
 }
 
@@ -37,6 +38,7 @@ function resetArray() {
   arrayOfIndexes = [];
 }
 
+//Declare variable to hold only unique numbers
 let uniqueArray;
 
 const putAvailableIndexesInArray = () => {
@@ -49,6 +51,7 @@ const putAvailableIndexesInArray = () => {
       let index = arrayOfNodes.indexOf(getNodeList[i]);
 
       arrayOfIndexes.push(index);
+      //Filter out duplicate numbers and put them into an array
       uniqueArray = Array.from(new Set(arrayOfIndexes));
 
     }
@@ -68,4 +71,73 @@ const putAvailableIndexesInArray = () => {
 
 
   console.log(uniqueArray);
+}
+
+
+function checkWinUser() {
+
+  if (
+    getNodeList[0].style.backgroundColor === 'blue'
+    && getNodeList[1].style.backgroundColor === 'blue'
+    && getNodeList[2].style.backgroundColor === 'blue'
+  ) {
+    console.log("Top row is blue");
+  }
+
+  if (
+    getNodeList[3].style.backgroundColor === 'blue'
+    && getNodeList[4].style.backgroundColor === 'blue'
+    && getNodeList[5].style.backgroundColor === 'blue'
+  ) {
+    console.log("Middle row is blue");
+  }
+
+  if (
+    getNodeList[6].style.backgroundColor === 'blue'
+    && getNodeList[7].style.backgroundColor === 'blue'
+    && getNodeList[8].style.backgroundColor === 'blue'
+  ) {
+    console.log("Bottom row is blue");
+  }
+
+  if (
+    getNodeList[0].style.backgroundColor === 'blue'
+    && getNodeList[3].style.backgroundColor === 'blue'
+    && getNodeList[6].style.backgroundColor === 'blue'
+  ) {
+    console.log("Left column is blue");
+  }
+
+  if (
+    getNodeList[1].style.backgroundColor === 'blue'
+    && getNodeList[4].style.backgroundColor === 'blue'
+    && getNodeList[7].style.backgroundColor === 'blue'
+  ) {
+    console.log("Middle column is blue");
+  }
+
+  if (
+    getNodeList[2].style.backgroundColor === 'blue'
+    && getNodeList[5].style.backgroundColor === 'blue'
+    && getNodeList[8].style.backgroundColor === 'blue'
+  ) {
+    console.log("Right column is blue");
+  }
+
+  if (
+    getNodeList[0].style.backgroundColor === 'blue'
+    && getNodeList[4].style.backgroundColor === 'blue'
+    && getNodeList[8].style.backgroundColor === 'blue'
+  ) {
+    console.log("Top left to bottom right is blue");
+  }
+
+  if (
+    getNodeList[2].style.backgroundColor === 'blue'
+    && getNodeList[4].style.backgroundColor === 'blue'
+    && getNodeList[6].style.backgroundColor === 'blue'
+  ) {
+    console.log("Top right to bottom left is blue");
+  }
+
 }
