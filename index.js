@@ -74,8 +74,8 @@ const putAvailableIndexesInArray = () => {
 
     }
   }
-
-  runComputerMark();
+  setTimeout(runComputerMark, 500);
+  // runComputerMark();
 
   console.log(uniqueArray);
 }
