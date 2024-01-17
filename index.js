@@ -10,7 +10,7 @@ for (let i = 0; i < getNodeList.length; i++) {
   getNodeList[i].setAttribute("tag", "false");
 }
 
-//Game function
+//Code to let user mark upon click
 for (let i = 0; i < getNodeList.length; i++) {
   getNodeList[i].addEventListener('click', (e) => {
 
@@ -23,6 +23,7 @@ for (let i = 0; i < getNodeList.length; i++) {
       return;
     }
     putAvailableIndexesInArray();
+    //Reset array to avoid having duplicates
     resetArray();
 
     checkWinUser();
@@ -60,22 +61,26 @@ const putAvailableIndexesInArray = () => {
 
   }
 
-  //Computer select
+
   const n = Math.floor(Math.random() * uniqueArray.length);
   let num = uniqueArray[n];
 
-  if (getNodeList[num].getAttribute("tag") === "false") {
+  //Computer selection function
+  function runComputerMark() {
+    if (getNodeList[num].getAttribute("tag") === "false") {
 
-    getNodeList[num].style.backgroundColor = 'red';
-    getNodeList[num].setAttribute("tag", "true");
+      getNodeList[num].style.backgroundColor = 'red';
+      getNodeList[num].setAttribute("tag", "true");
 
+    }
   }
 
+  runComputerMark();
 
   console.log(uniqueArray);
 }
 
-
+//Conditions to check for winner
 function checkWinUser() {
 
   if (
